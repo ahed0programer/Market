@@ -52,8 +52,13 @@ class ProductController extends Controller
         ]);
 
         //
+        $product= new Product();
+        $product->name=$request->name;
+        $product->price=$request->price;
+        $product->save();
+        //
 
-        $product=Product::create($request->all());
+        ////$product=Product::create($request->all());
         return redirect()->route('products.index')
         ->with('success','product added successfully');
     }
